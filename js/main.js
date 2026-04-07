@@ -40,9 +40,7 @@
       var target = document.querySelector(targetId);
       if (!target) return;
       e.preventDefault();
-      var headerH = header.offsetHeight;
-      var top = target.getBoundingClientRect().top + window.pageYOffset - headerH;
-      window.scrollTo({ top: top, behavior: 'smooth' });
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 
