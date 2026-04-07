@@ -16,7 +16,8 @@
   --color-text-light: #FFFFFF;
   --color-text-muted: #5A6B5A;
 
-  --ff-heading: 'Playfair Display', Georgia, serif;
+  --ff-heading: 'Cormorant Garamond', Georgia, serif;
+  --ff-brand:   'Great Vibes', cursive;
   --ff-body:    'Raleway', 'Segoe UI', sans-serif;
 
   --shadow-card: 0 4px 20px rgba(0,0,0,0.08);
@@ -53,13 +54,13 @@ a:hover { color: var(--color-highlight); }
 }
 .header__inner {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0.75rem 0;
+  padding: 0.75rem 0; width: 94%; max-width: 1300px; margin: 0 auto;
 }
 .header__logo {
   display: flex; align-items: center; gap: 0.5rem; color: var(--color-text-light);
 }
 .header__logo img { border-radius: 50%; object-fit: cover; }
-.header__brand { font-family: var(--ff-heading); font-size: 1.15rem; font-weight: 600; }
+.header__brand { font-family: var(--ff-brand); font-size: 1.5rem; font-weight: 400; letter-spacing: 0.02em; }
 
 /* Nav */
 .nav { display: flex; gap: 1.75rem; }
@@ -120,12 +121,14 @@ a:hover { color: var(--color-highlight); }
 }
 .hero__content { position: relative; z-index: 1; padding: 2rem; }
 .hero__title {
-  font-family: var(--ff-heading); font-size: clamp(2.2rem, 6vw, 4rem);
-  color: var(--color-text-light); margin-bottom: 0.75rem;
+  font-family: var(--ff-brand); font-size: clamp(2.8rem, 8vw, 5rem);
+  color: var(--color-text-light); margin-bottom: 0.75rem; font-weight: 400;
 }
 .hero__tagline {
-  font-size: clamp(1rem, 2.5vw, 1.35rem);
-  color: rgba(255,255,255,0.9); margin-bottom: 2rem; font-weight: 300;
+  font-family: var(--ff-heading); font-style: italic;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  color: rgba(255,255,255,0.9); margin-bottom: 2rem; font-weight: 400;
+  letter-spacing: 0.03em;
 }
 
 /* ---------- Buttons ---------- */
@@ -144,8 +147,9 @@ a:hover { color: var(--color-highlight); }
 .section { padding: 5rem 0; }
 .section--alt { background: var(--color-bg-section); }
 .section__title {
-  font-family: var(--ff-heading); font-size: clamp(1.75rem, 4vw, 2.5rem);
-  color: var(--color-primary); margin-bottom: 1rem;
+  font-family: var(--ff-heading); font-size: clamp(2rem, 4.5vw, 3rem);
+  color: var(--color-primary); margin-bottom: 1rem; font-weight: 600;
+  letter-spacing: 0.02em;
 }
 .section__title--center { text-align: center; }
 .section__title--center::after {
@@ -217,8 +221,8 @@ a:hover { color: var(--color-highlight); }
 .card:hover .card__img img { transform: scale(1.05); }
 .card__body { padding: 1.5rem; }
 .card__title {
-  font-family: var(--ff-heading); font-size: 1.25rem;
-  color: var(--color-primary); margin-bottom: 0.5rem;
+  font-family: var(--ff-heading); font-size: 1.35rem;
+  color: var(--color-primary); margin-bottom: 0.5rem; font-weight: 600;
 }
 .card__body p { color: var(--color-text-muted); font-size: 0.95rem; }
 
@@ -363,8 +367,8 @@ a:hover { color: var(--color-highlight); }
 .footer__inner { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
 .footer__brand {
   display: flex; align-items: center; gap: 0.5rem;
-  font-family: var(--ff-heading); font-size: 1.1rem;
-  color: var(--color-text-light);
+  font-family: var(--ff-brand); font-size: 1.3rem;
+  color: var(--color-text-light); font-weight: 400;
 }
 .footer__brand img { border-radius: 50%; }
 .footer__socials { display: flex; gap: 1rem; }
