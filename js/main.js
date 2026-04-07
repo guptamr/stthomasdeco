@@ -89,11 +89,13 @@
     openLightbox(currentIdx);
   }
 
-  items.forEach(function (item, idx) {
-    item.addEventListener('click', function (e) {
-      e.preventDefault();
-      openLightbox(idx);
-    });
+  /* Delegate clicks so filtered items work correctly */
+  document.querySelector('.gallery').addEventListener('click', function (e) {
+    var link = e.target.closest('.gallery__item');
+    if (!link || link.classList.contains('gallery__item--hidden')) return;
+    e.preventDefault();
+    var idx = items.indexOf(link);
+    if (idx !== -1) openLightbox(idx);
   });
 
   document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
@@ -133,4 +135,42 @@
   }
   window.addEventListener('scroll', highlightNav, { passive: true });
   highlightNav();
+
+  /* ---------- Service Card Carousels ---------- */
+  var carousels = document.querySelectorAll('.card__carousel');
+  carousels.forEach(function (carousel) {
+    var slides = carousel.querySelectorAll('.card__slide');
+    var dots = carousel.querySelectorAll('.card__dot');
+    var current = 0;
+    var total = slides.length;
+    if (total < 2) return;
+    setInterval(function () {
+      slides[current].classList.remove('card__slide--active');
+      if (dots[current]) dots[current].classList.remove('card__dot--active');
+      current = (current + 1) % total;
+      slides[current].classList.add('card__slide--active');
+      if (dots[current]) dots[current].classList.add('card__dot--active');
+    }, 3000);
+  });
+
+  /* ---------- Gallery Filters ---------- */
+  var filterBtns = document.querySelectorAll('.gallery-filter');
+  var galleryItems = document.querySelectorAll('.gallery__item');
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var filter = this.getAttribute('data-filter');
+      filterBtns.forEach(function (b) { b.classList.remove('gallery-filter--active'); });
+      this.classList.add('gallery-filter--active');
+      galleryItems.forEach(function (item) {
+        var cat = item.getAttribute('data-category') || '';
+        if (filter === 'all' || cat === filter) {
+          item.classList.remove('gallery__item--hidden');
+        } else {
+          item.classList.add('gallery__item--hidden');
+        }
+      });
+      /* Re-query visible items so lightbox nav stays in sync */
+      items = Array.from(document.querySelectorAll('.gallery__item:not(.gallery__item--hidden)'));
+    });
+  });
 })();

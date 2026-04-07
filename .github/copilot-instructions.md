@@ -21,7 +21,7 @@ Static single-page website for **St.Thomas Deco by Raj**, an event decor busines
 | `css/style.css` | All styles — responsive, animations | Colors, layout, spacing, responsive breakpoints |
 | `js/main.js` | All interactivity — menu, lightbox, scroll | Behavior, new interactive features |
 | `CNAME` | GitHub Pages custom domain | Domain changes only |
-| `pics/` | 12 images (2 logos + 10 portfolio) | Adding/replacing photos |
+| `pics/` | 23 images (2 logos + 21 portfolio) | Adding/replacing photos |
 
 Files NOT part of the site: `Facebook.html`, `PLAN.md`, `README.md`
 
@@ -98,17 +98,26 @@ Files NOT part of the site: `Facebook.html`, `PLAN.md`, `README.md`
 1. Add `.jpg` file to `pics/`
 2. Add inside `<div class="gallery reveal">`:
 ```html
-<a href="pics/FILENAME.jpg" class="gallery__item" data-caption="Image description">
+<a href="pics/FILENAME.jpg" class="gallery__item" data-caption="Image description" data-category="wedding">
   <img src="pics/FILENAME.jpg" alt="Short alt text" loading="lazy">
+  <span class="gallery__overlay">Display Name</span>
 </a>
 ```
+3. Valid `data-category` values: `wedding`, `birthday`, `baby`, `flowers`
 
 ### Adding a Service Card
-Copy existing `.card` block in services section:
+Service cards use rotating image carousels. Copy existing `.card` block in services section:
 ```html
 <div class="card reveal">
-  <div class="card__img">
-    <img src="pics/FILENAME.jpg" alt="Description" loading="lazy">
+  <div class="card__img card__carousel">
+    <img src="pics/FILE1.jpg" alt="Description" loading="lazy" class="card__slide card__slide--active">
+    <img src="pics/FILE2.jpg" alt="Description" loading="lazy" class="card__slide">
+    <img src="pics/FILE3.jpg" alt="Description" loading="lazy" class="card__slide">
+    <div class="card__dots">
+      <span class="card__dot card__dot--active"></span>
+      <span class="card__dot"></span>
+      <span class="card__dot"></span>
+    </div>
   </div>
   <div class="card__body">
     <h3 class="card__title">Service Name</h3>
@@ -157,4 +166,4 @@ Add `reveal` class to any element to animate it on scroll:
 - **Email**: rajapakshethakshala@gmail.com
 - **Address**: 17 Tamarack Court, Saint Thomas, ON, Canada
 - **Facebook**: facebook.com/profile.php?id=100092185550079
-- **Instagram**: instagram.com/turquoise_deco
+- **Instagram**: instagram.com/stthomasdeco

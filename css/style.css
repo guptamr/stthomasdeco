@@ -108,6 +108,11 @@ a:hover { color: var(--color-highlight); }
 .hero__bg {
   position: absolute; inset: 0;
   background-size: cover; background-position: center; background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+/* iOS doesn't support background-attachment: fixed in overflow containers */
+@supports (-webkit-touch-callout: none) {
+  .hero__bg { background-attachment: scroll; }
 }
 .hero__overlay {
   position: absolute; inset: 0;
@@ -143,9 +148,40 @@ a:hover { color: var(--color-highlight); }
   color: var(--color-primary); margin-bottom: 1rem;
 }
 .section__title--center { text-align: center; }
+.section__title--center::after {
+  content: ''; display: block; width: 60px; height: 2px;
+  background: var(--color-gold); margin: 0.75rem auto 0; border-radius: 2px;
+}
 .section__subtitle {
   text-align: center; color: var(--color-text-muted);
   max-width: 600px; margin: 0 auto 3rem; font-size: 1.05rem;
+}
+
+/* ---------- Decorative Dividers ---------- */
+.section-divider {
+  text-align: center; padding: 1rem 0; color: var(--color-gold);
+}
+.section-divider svg { width: 120px; height: 20px; }
+
+/* ---------- Quote Banner ---------- */
+.quote-banner {
+  background: var(--color-primary); padding: 3rem 0; text-align: center;
+  position: relative; overflow: hidden;
+}
+.quote-banner::before,
+.quote-banner::after {
+  content: ''; position: absolute; width: 200px; height: 200px;
+  border: 1px solid rgba(200,169,110,0.15); border-radius: 50%;
+}
+.quote-banner::before { top: -80px; left: -60px; }
+.quote-banner::after { bottom: -80px; right: -60px; width: 150px; height: 150px; }
+.quote-banner__text {
+  font-family: var(--ff-heading); font-size: clamp(1.2rem, 3vw, 1.75rem);
+  color: var(--color-text-light); font-weight: 400;
+  font-style: italic; letter-spacing: 0.02em;
+}
+.quote-banner__text em {
+  color: var(--color-gold); font-style: normal; font-weight: 600;
 }
 
 /* ---------- About ---------- */
@@ -186,21 +222,81 @@ a:hover { color: var(--color-highlight); }
 }
 .card__body p { color: var(--color-text-muted); font-size: 0.95rem; }
 
-/* ---------- Gallery ---------- */
+/* ---------- Card Carousel ---------- */
+.card__carousel { position: relative; }
+.card__carousel .card__slide {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transition: opacity 0.8s ease;
+}
+.card__carousel .card__slide--active {
+  opacity: 1; z-index: 1; position: relative;
+}
+.card__dots {
+  position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 6px; z-index: 2;
+}
+.card__dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,0.5); border: none;
+  cursor: pointer; transition: background var(--transition);
+}
+.card__dot--active { background: var(--color-text-light); }
+
+/* ---------- Gallery Filters ---------- */
+.gallery-filters {
+  display: flex; justify-content: center; flex-wrap: wrap;
+  gap: 0.75rem; margin-bottom: 2rem;
+}
+.gallery-filter {
+  padding: 0.5rem 1.5rem; border: 1.5px solid var(--color-mint);
+  border-radius: 50px; background: transparent; cursor: pointer;
+  font-family: var(--ff-body); font-size: 0.9rem; font-weight: 500;
+  color: var(--color-text-muted);
+  transition: all var(--transition);
+}
+.gallery-filter:hover { border-color: var(--color-gold); color: var(--color-primary); }
+.gallery-filter--active {
+  background: var(--color-gold); border-color: var(--color-gold);
+  color: var(--color-primary); font-weight: 600;
+}
+
+/* ---------- Gallery (Masonry) ---------- */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
+  columns: 3; column-gap: 1rem;
 }
 .gallery__item {
+  display: inline-block; width: 100%; margin-bottom: 1rem;
   border-radius: var(--radius); overflow: hidden;
-  cursor: pointer; aspect-ratio: 4/3;
+  cursor: pointer; position: relative;
+  break-inside: avoid;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.gallery__item--hidden {
+  display: none;
 }
 .gallery__item img {
-  width: 100%; height: 100%; object-fit: cover;
-  transition: transform 0.4s ease;
+  width: 100%; height: auto; display: block; object-fit: cover;
+  transition: transform 0.5s ease;
 }
-.gallery__item:hover img { transform: scale(1.06); }
+.gallery__item:hover img { transform: scale(1.05); }
+.gallery__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(10,46,10,0.8) 0%, transparent 50%);
+  display: flex; align-items: flex-end; padding: 1.25rem;
+  opacity: 0; transition: opacity 0.4s ease;
+  font-family: var(--ff-heading); font-size: 1rem;
+  color: var(--color-text-light); font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.gallery__item:hover .gallery__overlay { opacity: 1; }
+
+@media (max-width: 768px) {
+  .gallery { columns: 2; }
+}
+@media (max-width: 480px) {
+  .gallery { columns: 1; }
+}
 
 /* ---------- Contact ---------- */
 .contact {
@@ -276,6 +372,16 @@ a:hover { color: var(--color-highlight); }
 .footer__socials a:hover { color: var(--color-gold); }
 .footer__copy { font-size: 0.85rem; }
 .footer__made { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+.footer__dev {
+  font-size: 0.7rem; color: rgba(255,255,255,0.2);
+  margin-top: 0.25rem; letter-spacing: 0.08em;
+}
+.footer__dev a {
+  color: rgba(255,255,255,0.25);
+  transition: color var(--transition);
+  text-decoration: none;
+}
+.footer__dev a:hover { color: rgba(255,255,255,0.5); }
 
 /* ---------- Lightbox ---------- */
 .lightbox {
@@ -317,3 +423,24 @@ a:hover { color: var(--color-highlight); }
 .reveal.visible {
   opacity: 1; transform: translateY(0);
 }
+
+/* Stagger service cards */
+.services .card.reveal:nth-child(2) { transition-delay: 0.1s; }
+.services .card.reveal:nth-child(3) { transition-delay: 0.2s; }
+.services .card.reveal:nth-child(4) { transition-delay: 0.3s; }
+
+/* Hero entrance animation */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero__title { animation: heroFadeUp 1s ease 0.2s both; }
+.hero__tagline { animation: heroFadeUp 1s ease 0.5s both; }
+.hero .btn { animation: heroFadeUp 1s ease 0.8s both; }
+
+/* Subtle float for hero CTA */
+@keyframes subtlePulse {
+  0%, 100% { box-shadow: 0 4px 15px rgba(200,169,110,0.3); }
+  50% { box-shadow: 0 6px 25px rgba(200,169,110,0.5); }
+}
+.hero .btn--gold { animation: heroFadeUp 1s ease 0.8s both, subtlePulse 3s ease-in-out 2s infinite; }

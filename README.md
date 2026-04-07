@@ -26,7 +26,7 @@ stthomasdeco/
 ├── css/style.css       ← All styles, responsive design, animations
 ├── js/main.js          ← Interactivity (menu, lightbox, scroll effects)
 ├── CNAME               ← Custom domain pointer for GitHub Pages (stthomasdeco.ca)
-├── pics/               ← 12 images (2 logos + 10 portfolio photos, all .jpg)
+├── pics/               ← 23 images (2 logos + 21 portfolio photos, all .jpg)
 ├── .gitignore          ← Excludes .vscode/, node_modules/, .DS_Store, etc.
 ├── PLAN.md             ← Project plan document
 ├── Facebook.html       ← Reference file (NOT part of the live site)
@@ -60,8 +60,8 @@ Single-page scrolling design with **6 sections + lightbox**, anchored by `id` at
 | **Header** | `<header>` fixed at top | Starts transparent, becomes solid green on scroll via JS class toggle |
 | **Hero** | `<section id="home">` | CSS `background-size: cover` + dark gradient overlay for text readability |
 | **About** | `<section id="about">` | 2-column CSS Grid (logo image + text + star badge) |
-| **Services** | `<section id="services">` | 4 cards in `auto-fit` CSS Grid, each with 220px image + description |
-| **Gallery** | `<section id="gallery">` | 10 photos in responsive grid; `<a>` tags wrapping `<img>` — click opens lightbox |
+| **Services** | `<section id="services">` | 4 cards in `auto-fit` CSS Grid, each with rotating image carousel (3 images, 3s interval) + description |
+| **Gallery** | `<section id="gallery">` | 21 photos in masonry layout with category filter buttons (All/Weddings/Birthdays/Baby Showers/Flowers), hover overlays with captions; click opens lightbox |
 | **Contact** | `<section id="contact">` | 2-column: left = contact info cards with SVG icons, right = HTML form |
 | **Footer** | `<footer>` | Dark background, brand, social icons, copyright |
 | **Lightbox** | `<dialog id="lightbox">` | Native HTML `<dialog>` with `showModal()`/`close()` API |
@@ -151,9 +151,19 @@ All icons are **inline SVGs** — no icon library download needed:
 | Sticky header | `position: fixed` + `transparent` → JS toggles `.header--scrolled` (solid dark green) |
 | Hamburger animation | Three `<span>` bars → transform to X via `.open` class |
 | Card hover | `translateY(-6px)` lift + image `scale(1.05)` zoom |
+| Card carousel | `.card__slide` images fade via `opacity` transition; JS rotates every 3 seconds with dot indicators |
 | Nav underline | `::after` pseudo-element, `width: 0` → `width: 100%` on hover |
 | Fluid typography | `clamp(2.2rem, 6vw, 4rem)` — scales between min and max |
 | Scroll reveal | `.reveal` starts at `opacity: 0; translateY(30px)` → `.visible` fades up |
+| Masonry gallery | CSS `columns: 3` with `break-inside: avoid` for Pinterest-style layout |
+| Gallery overlays | `::after`-style overlay with gradient + caption text, shown on hover |
+| Gallery filters | Category buttons toggle `.gallery__item--hidden`; lightbox re-indexes visible items |
+| Section dividers | SVG flourish ornaments (wavy line + dots) between sections |
+| Quote banner | Dark green band with italic serif text, decorative circle pseudo-elements |
+| Hero parallax | `background-attachment: fixed` (with iOS `@supports` fallback) |
+| Hero animation | `@keyframes heroFadeUp` staggers title → tagline → CTA button |
+| CTA glow pulse | `@keyframes subtlePulse` on hero button after entrance animation |
+| Title underlines | `::after` gold line under centered section titles |
 | Lightbox | Native `<dialog>` element, `position: fixed; inset: 0`, `rgba(0,0,0,0.92)` backdrop |
 
 ---
@@ -173,8 +183,10 @@ Wrapped in an **IIFE** to avoid polluting global scope:
 | **Mobile menu** | Hamburger click toggles `.open` on nav + hamburger, updates `aria-expanded` |
 | **Smooth scroll** | Intercepts `a[href^="#"]` clicks, calculates offset minus header height, `behavior: 'smooth'` |
 | **Scroll reveal** | `IntersectionObserver` (threshold 0.15) adds `.visible` class; `unobserve` after animation; fallback for old browsers |
-| **Lightbox gallery** | Native `<dialog>` `showModal()`/`close()`, prev/next with wrap-around, keyboard support (Escape, ←, →), backdrop click close |
+| **Lightbox gallery** | Native `<dialog>` `showModal()`/`close()`, prev/next with wrap-around, keyboard support (Escape, ←, →), backdrop click close. Event-delegated clicks for filter compatibility |
 | **Active nav highlight** | Scroll listener checks which section is in viewport, toggles `.active` on corresponding nav link |
+| **Card carousels** | `setInterval` (3s) cycles `.card__slide--active` class across 3 images per service card with dot indicators |
+| **Gallery filters** | Click handler toggles `.gallery__item--hidden` by `data-category`; re-indexes `items` array for lightbox navigation |
 
 ### No Dependencies
 
@@ -308,10 +320,12 @@ git push origin main
 1. Add the image file to `pics/`
 2. In `index.html`, inside `<div class="gallery reveal">`, add:
 ```html
-<a href="pics/YOUR_IMAGE.jpg" class="gallery__item" data-caption="Description of the image">
+<a href="pics/YOUR_IMAGE.jpg" class="gallery__item" data-caption="Description" data-category="wedding">
   <img src="pics/YOUR_IMAGE.jpg" alt="Short alt text" loading="lazy">
+  <span class="gallery__overlay">Display Name</span>
 </a>
 ```
+3. Valid `data-category` values: `wedding`, `birthday`, `baby`, `flowers`
 
 ---
 
@@ -334,7 +348,7 @@ git push origin main
 | Layer | Technology |
 |-------|-----------|
 | Markup | HTML5 (semantic elements, `<dialog>`, lazy loading) |
-| Styling | CSS3 (custom properties, Grid, Flexbox, `clamp()`, transitions) |
+| Styling | CSS3 (custom properties, Grid, columns, Flexbox, `clamp()`, transitions, `@keyframes`) |
 | Scripting | Vanilla JS (ES5-compatible, IntersectionObserver with fallback) |
 | Fonts | Google Fonts CDN (Playfair Display + Raleway) |
 | Icons | Inline SVGs (zero dependencies) |
