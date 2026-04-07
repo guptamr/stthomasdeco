@@ -278,7 +278,7 @@ test.describe('F — Lightbox', () => {
     const allWedding = await page.locator('.gallery__item:not(.gallery__item--hidden)').count();
     for (let i = 0; i < allWedding; i++) {
       const src = await page.locator('#lightboxImg').getAttribute('src');
-      const relativeSrc = src.replace(/^https?:\/\/[^/]+\//, '');
+      const relativeSrc = (src ?? '').replace(/^https?:\/\/[^/]+\//, '');
       const matchingItem = page.locator(`.gallery__item[href="${relativeSrc}"]`);
       const cat = await matchingItem.getAttribute('data-category');
       expect(cat).toBe('wedding');
