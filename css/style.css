@@ -353,6 +353,10 @@ a:hover { color: var(--color-highlight); }
   box-shadow: 0 0 0 3px rgba(46,125,50,0.15);
 }
 .form__group textarea { resize: vertical; }
+.form__group input[type="date"] {
+  -webkit-appearance: none; appearance: none;
+  min-height: 2.75rem; max-height: 2.75rem;
+}
 
 @media (max-width: 768px) {
   .contact { grid-template-columns: 1fr; }
