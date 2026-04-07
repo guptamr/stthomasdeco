@@ -1,8 +1,8 @@
 {
   "name": "stthomasdeco",
   "version": "1.0.0",
+  "private": true,
   "description": "Event decor & planning business website for **St.Thomas Deco by Raj**, based in St. Thomas, Ontario, Canada. Single-page static site hosted on GitHub Pages with a custom domain.",
-  "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
     "test:unit": "npx playwright test tests/unit.spec.js",

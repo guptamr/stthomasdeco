@@ -4,11 +4,25 @@ const { test, expect } = require('@playwright/test');
 /**
  * Helper: wait for all lazy images in a section to load,
  * scroll-reveal animations to finish, and hero animation to settle.
+ * Stops carousel auto-rotation and resets to first slide for deterministic screenshots.
  * @param {import('@playwright/test').Page} page
  */
 async function waitForReady(page) {
   await page.waitForLoadState('networkidle');
   await page.waitForTimeout(1200);
+  // Stop carousel intervals and reset to first slide for deterministic screenshots
+  await page.evaluate(() => {
+    const highestId = Number(globalThis.setInterval(() => {}, 0));
+    for (let i = 0; i <= highestId; i++) globalThis.clearInterval(i);
+    document.querySelectorAll('.card__carousel').forEach(carousel => {
+      carousel.querySelectorAll('.card__slide').forEach((slide, idx) => {
+        slide.classList.toggle('card__slide--active', idx === 0);
+      });
+      carousel.querySelectorAll('.card__dot').forEach((dot, idx) => {
+        dot.classList.toggle('card__dot--active', idx === 0);
+      });
+    });
+  });
 }
 
 /* ============================================================
@@ -56,9 +70,10 @@ test.describe('Full Page Snapshots', function () {
   test('S6: footer', async function ({ page }) {
     await page.goto('/');
     await waitForReady(page);
-    await page.evaluate(function () { window.scrollTo(0, document.body.scrollHeight); });
+    const footer = page.locator('footer');
+    await footer.scrollIntoViewIfNeeded();
     await page.waitForTimeout(800);
-    await expect(page).toHaveScreenshot('footer.png');
+    await expect(footer).toHaveScreenshot('footer.png');
   });
 });
 

@@ -25,10 +25,14 @@ stthomasdeco/
 ├── index.html          ← Single-page site (all 6 sections in one file)
 ├── css/style.css       ← All styles, responsive design, animations
 ├── js/main.js          ← Interactivity (menu, lightbox, scroll effects)
+├── images/             ← 23 images (1 logo + 22 portfolio, kebab-case names)
+├── tests/              ← Playwright unit + snapshot tests (3 viewports)
+├── playwright.config.js← Test configuration
+├── package.json        ← Test scripts and dev dependencies
 ├── CNAME               ← Custom domain pointer for GitHub Pages (stthomasdeco.ca)
-├── pics/               ← 23 images (2 logos + 21 portfolio photos, all .jpg)
-├── .gitignore          ← Excludes .vscode/, node_modules/, .DS_Store, etc.
+├── .gitignore          ← Excludes node_modules/, .DS_Store, test artifacts
 ├── PLAN.md             ← Project plan document
+├── TESTPLAN.md         ← Test plan document
 └── README.md           ← This file
 ```
 
@@ -49,7 +53,7 @@ Single-page scrolling design with **6 sections + lightbox**, anchored by `id` at
 | `display=swap` on fonts | Shows fallback font immediately, swaps when loaded |
 
 **Fonts loaded:**
-- **Playfair Display** (serif) — headings, elegant feel
+- **Cormorant Garamond** (serif) — headings, elegant feel
 - **Raleway** (sans-serif) — body text, clean and readable
 
 ### Section Breakdown
@@ -69,7 +73,7 @@ Single-page scrolling design with **6 sections + lightbox**, anchored by `id` at
 
 All images use **lazy loading** and descriptive `alt` attributes:
 ```html
-<img src="pics/..." alt="description" loading="lazy">
+<img src="images/..." alt="description" loading="lazy">
 ```
 - `loading="lazy"` — browser only downloads images near the viewport
 - Every `alt` attribute describes the image content (accessibility + SEO)
@@ -120,7 +124,7 @@ All icons are **inline SVGs** — no icon library download needed:
   --color-text:        #1A1A1A;   /* Near-black body text */
   --color-text-light:  #FFFFFF;   /* White text on dark backgrounds */
   --color-text-muted:  #5A6B5A;   /* Muted green-gray for subtitles */
-  --ff-heading: 'Playfair Display', Georgia, serif;
+  --ff-heading: 'Cormorant Garamond', Georgia, serif;
   --ff-body:    'Raleway', 'Segoe UI', sans-serif;
   --shadow-card: 0 4px 20px rgba(0,0,0,0.08);
   --radius:      12px;
@@ -307,7 +311,7 @@ git push origin main
 |------|---------------|
 | Change colors/fonts | `css/style.css` → `:root` variables at top |
 | Edit text content | `index.html` → find the relevant section by `id` |
-| Add a gallery photo | Add image to `pics/`, add `<a>` + `<img>` in gallery section |
+| Add a gallery photo | Add image to `images/`, add `<a>` + `<img>` in gallery section |
 | Add a service card | Copy an existing `.card` div in services section, update image/text |
 | Change contact info | `index.html` → search for phone/email/address |
 | Change form recipient | `index.html` → update `formsubmit.co/{email}` in form action |
@@ -316,15 +320,16 @@ git push origin main
 
 ### Adding a New Gallery Image
 
-1. Add the image file to `pics/`
+1. Add the image file to `images/` using kebab-case naming (e.g., `wedding-garden-arch.jpg`)
 2. In `index.html`, inside `<div class="gallery reveal">`, add:
 ```html
-<a href="pics/YOUR_IMAGE.jpg" class="gallery__item" data-caption="Description" data-category="wedding">
-  <img src="pics/YOUR_IMAGE.jpg" alt="Short alt text" loading="lazy">
+<a href="images/YOUR_IMAGE.jpg" class="gallery__item" data-caption="Description" data-category="wedding">
+  <img src="images/YOUR_IMAGE.jpg" alt="Short alt text" loading="lazy">
   <span class="gallery__overlay">Display Name</span>
 </a>
 ```
 3. Valid `data-category` values: `wedding`, `birthday`, `baby`, `flowers`
+4. Run `npm run test:update` to regenerate snapshot baselines
 
 ---
 

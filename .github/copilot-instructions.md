@@ -21,9 +21,11 @@ Static single-page website for **St.Thomas Deco by Raj**, an event decor busines
 | `css/style.css` | All styles — responsive, animations | Colors, layout, spacing, responsive breakpoints |
 | `js/main.js` | All interactivity — menu, lightbox, scroll | Behavior, new interactive features |
 | `CNAME` | GitHub Pages custom domain | Domain changes only |
-| `pics/` | 23 images (2 logos + 21 portfolio) | Adding/replacing photos |
+| `images/` | 23 images (1 logo + 22 portfolio, kebab-case names) | Adding/replacing photos |
+| `tests/` | Playwright unit + snapshot tests | Test changes |
+| `playwright.config.js` | Test configuration (3 viewports) | Test setup |
 
-Files NOT part of the site: `PLAN.md`, `README.md`
+Files NOT part of the site: `PLAN.md`, `README.md`, `TESTPLAN.md`
 
 ## Code Conventions
 
@@ -70,7 +72,7 @@ Files NOT part of the site: `PLAN.md`, `README.md`
 
 | Variable | Font | Usage |
 |----------|------|-------|
-| `--ff-heading` | Playfair Display (serif) | Headings, brand name |
+| `--ff-heading` | Cormorant Garamond (serif) | Headings, brand name |
 | `--ff-body` | Raleway (sans-serif) | Body text, buttons, form labels |
 
 ## Section IDs for Navigation
@@ -95,24 +97,25 @@ Files NOT part of the site: `PLAN.md`, `README.md`
 ## Key Patterns
 
 ### Adding a Gallery Image
-1. Add `.jpg` file to `pics/`
+1. Add `.jpg` file to `images/` using kebab-case naming (e.g., `wedding-garden-arch.jpg`)
 2. Add inside `<div class="gallery reveal">`:
 ```html
-<a href="pics/FILENAME.jpg" class="gallery__item" data-caption="Image description" data-category="wedding">
-  <img src="pics/FILENAME.jpg" alt="Short alt text" loading="lazy">
+<a href="images/FILENAME.jpg" class="gallery__item" data-caption="Image description" data-category="wedding">
+  <img src="images/FILENAME.jpg" alt="Short alt text" loading="lazy">
   <span class="gallery__overlay">Display Name</span>
 </a>
 ```
 3. Valid `data-category` values: `wedding`, `birthday`, `baby`, `flowers`
+4. Run `npm run test:update` to regenerate snapshot baselines
 
 ### Adding a Service Card
 Service cards use rotating image carousels. Copy existing `.card` block in services section:
 ```html
 <div class="card reveal">
   <div class="card__img card__carousel">
-    <img src="pics/FILE1.jpg" alt="Description" loading="lazy" class="card__slide card__slide--active">
-    <img src="pics/FILE2.jpg" alt="Description" loading="lazy" class="card__slide">
-    <img src="pics/FILE3.jpg" alt="Description" loading="lazy" class="card__slide">
+    <img src="images/FILE1.jpg" alt="Description" loading="lazy" class="card__slide card__slide--active">
+    <img src="images/FILE2.jpg" alt="Description" loading="lazy" class="card__slide">
+    <img src="images/FILE3.jpg" alt="Description" loading="lazy" class="card__slide">
     <div class="card__dots">
       <span class="card__dot card__dot--active"></span>
       <span class="card__dot"></span>
@@ -145,11 +148,20 @@ Add `reveal` class to any element to animate it on scroll:
 <div class="reveal">This will fade up when scrolled into view</div>
 ```
 
+## Testing
+
+- **Framework**: Playwright Test (Chromium, 3 viewports: Mobile 375px, Tablet 768px, Desktop 1440px)
+- **Unit tests**: `npm run test:unit` — 40 tests across 11 categories (A–K)
+- **Snapshot tests**: `npm run test:snapshots` — 20 visual regression tests
+- **Full suite**: `npm test` — runs all tests
+- **Update baselines**: `npm run test:update` — regenerate screenshot baselines after visual changes
+- **Image naming**: All images use descriptive kebab-case names (e.g., `safari-baby-shower.jpg`)
+
 ## Deployment
 
 - Push to `main` branch → GitHub Pages auto-deploys (~1 minute)
-- No build, no CI/CD pipeline, no npm scripts
 - Test locally: `python3 -m http.server 8000` then visit `http://localhost:8000`
+- Run tests before pushing: `npm test`
 
 ## Security Notes
 
