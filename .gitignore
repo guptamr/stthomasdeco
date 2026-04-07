@@ -142,3 +142,8 @@ vite.config.ts.timestamp-*
 .vscode/
 Facebook_files/
 .DS_Store
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/

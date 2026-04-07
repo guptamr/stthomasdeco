@@ -124,7 +124,6 @@ stthomasdeco/
 │   ├── 619460738...n.jpg   # Painted sign logo
 │   └── (10 gallery photos)
 ├── CNAME                   # GitHub Pages custom domain file
-├── Facebook.html           # Reference (not deployed)
 ├── README.md
 └── PLAN.md                 # This file
 ```

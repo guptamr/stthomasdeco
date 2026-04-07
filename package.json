@@ -1,0 +1,26 @@
+{
+  "name": "stthomasdeco",
+  "version": "1.0.0",
+  "description": "Event decor & planning business website for **St.Thomas Deco by Raj**, based in St. Thomas, Ontario, Canada. Single-page static site hosted on GitHub Pages with a custom domain.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:unit": "npx playwright test tests/unit.spec.js",
+    "test:snapshots": "npx playwright test tests/snapshots.spec.js",
+    "test:update": "npx playwright test tests/snapshots.spec.js --update-snapshots"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guptamr/stthomasdeco.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guptamr/stthomasdeco/issues"
+  },
+  "homepage": "https://github.com/guptamr/stthomasdeco#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.59.1"
+  }
+}

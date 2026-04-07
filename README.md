@@ -29,7 +29,6 @@ stthomasdeco/
 ├── pics/               ← 23 images (2 logos + 21 portfolio photos, all .jpg)
 ├── .gitignore          ← Excludes .vscode/, node_modules/, .DS_Store, etc.
 ├── PLAN.md             ← Project plan document
-├── Facebook.html       ← Reference file (NOT part of the live site)
 └── README.md           ← This file
 ```
 

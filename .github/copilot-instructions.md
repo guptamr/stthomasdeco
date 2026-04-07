@@ -23,7 +23,7 @@ Static single-page website for **St.Thomas Deco by Raj**, an event decor busines
 | `CNAME` | GitHub Pages custom domain | Domain changes only |
 | `pics/` | 23 images (2 logos + 21 portfolio) | Adding/replacing photos |
 
-Files NOT part of the site: `Facebook.html`, `PLAN.md`, `README.md`
+Files NOT part of the site: `PLAN.md`, `README.md`
 
 ## Code Conventions
 
