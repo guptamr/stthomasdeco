@@ -61,6 +61,20 @@
     reveals.forEach(function (el) { el.classList.add('visible'); });
   }
 
+  /* ---------- Eager gallery preload ---------- */
+  var galleryImgs = document.querySelectorAll('.gallery__item img[loading="lazy"]');
+  if ('IntersectionObserver' in window && galleryImgs.length) {
+    var preloader = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.loading = 'eager';
+          preloader.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '500px 0px' });
+    galleryImgs.forEach(function (img) { preloader.observe(img); });
+  }
+
   /* ---------- Lightbox ---------- */
   var lightbox = document.getElementById('lightbox');
   var lightboxImg = document.getElementById('lightboxImg');
