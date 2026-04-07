@@ -1,6 +1,5 @@
 ---
 description: "Use when implementing changes to stthomasdeco.ca. Takes a plan (from the Planner agent or user), makes minimal code changes, runs lint checks, updates tests, runs the full test suite, fixes any issues, and commits+pushes. Use for: implement changes, make the changes, execute the plan, code and deploy."
-tools: [read, edit, search, execute, todo, agent]
 agents: ["planner"]
 ---
 
