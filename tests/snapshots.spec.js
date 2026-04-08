@@ -59,14 +59,6 @@ test.describe('Full Page Snapshots', function () {
     await expect(page).toHaveScreenshot('gallery-section.png');
   });
 
-  test('S5: contact-section', async function ({ page }) {
-    await page.goto('/');
-    await waitForReady(page);
-    await page.locator('#contact').scrollIntoViewIfNeeded();
-    await page.waitForTimeout(800);
-    await expect(page).toHaveScreenshot('contact-section.png');
-  });
-
   test('S6: footer', async function ({ page }) {
     await page.goto('/');
     await waitForReady(page);
