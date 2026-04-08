@@ -362,7 +362,7 @@ test.describe('I — Contact Form', () => {
   test('31: Form action URL correct', async ({ page }) => {
     await page.goto('/');
     const form = page.locator('#contactForm');
-    await expect(form).toHaveAttribute('action', 'https://formsubmit.co/rajapakshethakshala@gmail.com');
+    await expect(form).toHaveAttribute('action', 'https://formsubmit.co/stthomasdecobyraj@gmail.com');
   });
 
   test('32: Date input height is constrained', async ({ page }) => {

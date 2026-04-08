@@ -87,7 +87,7 @@ Files NOT part of the site: `PLAN.md`, `README.md`, `TESTPLAN.md`
 
 ## Contact Form Details
 
-- **Action URL**: `https://formsubmit.co/rajapakshethakshala@gmail.com`
+- **Action URL**: `https://formsubmit.co/stthomasdecobyraj@gmail.com`
 - **Method**: POST
 - **Spam protection**: Honeypot field (`name="_honey"`, hidden)
 - **After submit**: Redirects to `https://stthomasdeco.ca/#contact`
@@ -175,7 +175,7 @@ Add `reveal` class to any element to animate it on scroll:
 ## Business Contact Info (intentionally public)
 
 - **Phone**: (647) 572-7822
-- **Email**: rajapakshethakshala@gmail.com
+- **Email**: stthomasdecobyraj@gmail.com
 - **Address**: 17 Tamarack Court, Saint Thomas, ON, Canada
 - **Facebook**: facebook.com/profile.php?id=100092185550079
 - **Instagram**: instagram.com/stthomasdeco

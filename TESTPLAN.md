@@ -97,7 +97,7 @@ npx playwright install
 |---|------|-----|
 | 29 | Required fields enforce | Submit empty form → browser validation prevents submit |
 | 30 | Honeypot field is hidden | `input[name="_honey"]` exists and is not visible |
-| 31 | Form action URL correct | `<form>` action = `https://formsubmit.co/rajapakshethakshala@gmail.com` |
+| 31 | Form action URL correct | `<form>` action = `https://formsubmit.co/stthomasdecobyraj@gmail.com` |
 | 32 | Date input doesn't overflow | Select a date on mobile → input height stays at 2.75rem |
 
 ### J — Accessibility

@@ -9,7 +9,7 @@
 | **Domain** | stthomasdeco.ca |
 | **Location** | 17 Tamarack Court, Saint Thomas, ON, Canada, N5P 0A |
 | **Phone** | (647) 572-7822 |
-| **Email** | rajapakshethakshala@gmail.com |
+| **Email** | stthomasdecobyraj@gmail.com |
 | **Hours** | Always open |
 | **Tagline** | "Transforming spaces into unforgettable experiences" |
 | **Facebook** | [St.Thomas Deco by Raj](https://www.facebook.com/profile.php?id=100092185550079) |

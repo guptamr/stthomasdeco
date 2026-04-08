@@ -81,7 +81,7 @@ All images use **lazy loading** and descriptive `alt` attributes:
 ### Contact Form
 
 ```html
-<form action="https://formsubmit.co/rajapakshethakshala@gmail.com" method="POST">
+<form action="https://formsubmit.co/stthomasdecobyraj@gmail.com" method="POST">
   <input type="text" name="_honey" style="display:none">      <!-- Honeypot spam trap -->
   <input type="hidden" name="_captcha" value="false">          <!-- Skip captcha page -->
   <input type="hidden" name="_next" value="https://stthomasdeco.ca/#contact">
@@ -244,7 +244,7 @@ User types stthomasdeco.ca
 
 ```
 User fills form → clicks "Send Inquiry"
-  → Browser POSTs to formsubmit.co/rajapakshethakshala@gmail.com
+  → Browser POSTs to formsubmit.co/stthomasdecobyraj@gmail.com
   → FormSubmit validates (honeypot check, rate limit)
   → Formats data → emails to owner
   → Redirects user back to stthomasdeco.ca/#contact
