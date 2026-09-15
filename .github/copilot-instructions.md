@@ -2,9 +2,11 @@
 
 ## Project Overview
 
-Static single-page website for **St.Thomas Deco by Raj**, an event decor business in St. Thomas, Ontario. No build tools, no npm, no frameworks — pure HTML/CSS/JS served directly by GitHub Pages.
+Static single-page website for **Decorby Raj**, a custom balloon and event decor business serving London and St. Thomas, Ontario. No build tools or frameworks — pure HTML/CSS/JS served directly by GitHub Pages; npm is used only for tests.
 
 **Live domain:** stthomasdeco.ca (GitHub Pages + Wix DNS)
+
+**Brand identity:** Use `Decorby Raj` in copy and metadata. Use the owner-supplied `images/decorby-raj-logo.jpg` artwork, whose stylized wordmark reads “Decor by Raj”, for the header, favicon, and sharing metadata. Use `images/decorby-raj-garden-sign.png` as the About-section brand artwork. Tagline: “Turning your vision into beautiful moments.” Existing domain, email addresses, repository name, and social account URLs are operational endpoints; do not invent renamed replacements.
 
 ## Architecture
 
@@ -21,7 +23,7 @@ Static single-page website for **St.Thomas Deco by Raj**, an event decor busines
 | `css/style.css` | All styles — responsive, animations | Colors, layout, spacing, responsive breakpoints |
 | `js/main.js` | All interactivity — menu, lightbox, scroll | Behavior, new interactive features |
 | `CNAME` | GitHub Pages custom domain | Domain changes only |
-| `images/` | 23 images (1 logo + 22 portfolio, kebab-case names) | Adding/replacing photos |
+| `images/` | 23 images (2 brand assets + 21 portfolio, kebab-case names) | Adding/replacing photos |
 | `tests/` | Playwright unit + snapshot tests | Test changes |
 | `playwright.config.js` | Test configuration (3 viewports) | Test setup |
 
@@ -60,20 +62,21 @@ Files NOT part of the site: `PLAN.md`, `README.md`, `TESTPLAN.md`
 
 | Variable | Hex | Usage |
 |----------|-----|-------|
-| `--color-primary` | `#0D3B0D` | Header, footer, headings |
-| `--color-accent` | `#2E7D32` | Links, focus states |
-| `--color-highlight` | `#66BB6A` | Hover states |
-| `--color-gold` | `#C8A96E` | CTA buttons, premium accent |
-| `--color-bg` | `#FAFCFA` | Page background |
-| `--color-bg-section` | `#F1F8F2` | Alternating section backgrounds |
-| `--color-bg-dark` | `#0A2E0A` | Footer |
+| `--color-primary` | `#063B2B` | Header, footer, headings |
+| `--color-accent` | `#187451` | Links, focus states |
+| `--color-highlight` | `#116345` | Readable link hover states |
+| `--color-lime` | `#AFE883` | Brand accents on dark backgrounds |
+| `--color-turquoise` | `#24D5AF` | Brand-gradient endpoint |
+| `--color-bg` | `#FBFCF9` | Page background |
+| `--color-bg-section` | `#F0F7F2` | Alternating section backgrounds |
+| `--color-bg-dark` | `#03251A` | Footer |
 
 ### Typography
 
 | Variable | Font | Usage |
 |----------|------|-------|
-| `--ff-heading` | Cormorant Garamond (serif) | Headings, brand name |
-| `--ff-body` | Raleway (sans-serif) | Body text, buttons, form labels |
+| `--ff-heading` | Cormorant Garamond (serif) | Section headings and editorial text |
+| `--ff-body` | Raleway (sans-serif) | Brand name, body text, buttons, form labels |
 
 ## Section IDs for Navigation
 
@@ -91,7 +94,7 @@ Files NOT part of the site: `PLAN.md`, `README.md`, `TESTPLAN.md`
 - **Method**: POST
 - **Spam protection**: Honeypot field (`name="_honey"`, hidden)
 - **After submit**: Redirects to `https://stthomasdeco.ca/#contact`
-- **Subject line**: "New inquiry from stthomasdeco.ca"
+- **Subject line**: "New inquiry for Decorby Raj"
 - **Fields**: name (required), email (required), phone, event_type (dropdown), event_date, message
 
 ## Key Patterns

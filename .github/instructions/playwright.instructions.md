@@ -10,7 +10,7 @@ applyTo: ["tests/**", "playwright.config.js"]
 - **Framework**: Playwright Test (`@playwright/test`)
 - **Browser**: Chromium only (WebKit/Firefox not installed)
 - **Web server**: Inline Node.js HTTP server in `playwright.config.js` (port 8000)
-- **Baselines**: `tests/snapshots.spec.js-snapshots/` with `-darwin.png` suffix
+- **Baselines**: `tests/snapshots.spec.js-snapshots/` with a platform suffix (`-linux.png` for the current rebrand). Generate platform-specific baselines with `npm run test:update -- --reporter=line` when testing on another OS; do not relabel screenshots from a different platform.
 
 ## Viewports (3 projects)
 

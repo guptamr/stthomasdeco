@@ -1,4 +1,4 @@
-# Test Plan — stthomasdeco.ca
+# Test Plan — Decorby Raj (stthomasdeco.ca)
 
 ## Overview
 
@@ -18,7 +18,8 @@ npx playwright install
 - Base URL: `http://localhost:8000` (local Python server)
 - Projects: 3 viewport sizes (mobile, tablet, desktop)
 - Snapshot threshold: 0.3% pixel diff tolerance
-- Screenshot directory: `tests/__snapshots__`
+- Screenshot directory: `tests/snapshots.spec.js-snapshots/`
+- Baselines are platform-specific. Current Decorby Raj baselines use the `-linux.png` suffix; regenerate with `npm run test:update -- --reporter=line` for a different OS. Old branding baselines have been retired.
 
 **Viewports to test:**
 
@@ -111,7 +112,7 @@ npx playwright install
 ### K — Meta / SEO
 | # | Test | How |
 |---|------|-----|
-| 37 | Title tag present | `document.title` is not empty |
+| 37 | Title tag present | `document.title` includes `Decorby Raj` |
 | 38 | Meta description present | `meta[name="description"]` has content |
 | 39 | Open Graph tags present | `meta[property="og:title"]` exists with content |
 | 40 | CSP header present | `meta[http-equiv="Content-Security-Policy"]` exists |

@@ -1,8 +1,12 @@
-# St.Thomas Deco by Raj — stthomasdeco.ca
+# Decorby Raj — stthomasdeco.ca
 
-Event decor & planning business website for **St.Thomas Deco by Raj**, based in St. Thomas, Ontario, Canada. Single-page static site hosted on GitHub Pages with a custom domain.
+Custom balloon and event decor website for **Decorby Raj**, serving London and St. Thomas, Ontario, Canada. Single-page static site hosted on GitHub Pages with a custom domain.
 
 **Live site:** [https://stthomasdeco.ca](https://stthomasdeco.ca)
+
+**Brand:** Use **Decorby Raj** in website copy, titles, and accessibility labels. The owner-supplied artwork in `images/decorby-raj-logo.jpg` uses the stylized wordmark “Decor by Raj”; use that original image without altering it. The tagline is “Turning your vision into beautiful moments.” The palette pairs deep green with lime and turquoise.
+
+The existing domain, repository URL, phone, email addresses, and social account URLs remain the contact and hosting endpoints. A business-name change does not establish new addresses. Update those only when the owner supplies confirmed replacements. The Facebook profile uses its existing numeric ID, so its renamed page keeps the same link.
 
 ---
 
@@ -25,7 +29,7 @@ stthomasdeco/
 ├── index.html          ← Single-page site (all 6 sections in one file)
 ├── css/style.css       ← All styles, responsive design, animations
 ├── js/main.js          ← Interactivity (menu, lightbox, scroll effects)
-├── images/             ← 23 images (1 logo + 22 portfolio, kebab-case names)
+├── images/             ← 23 images (2 brand assets + 21 portfolio, kebab-case names)
 ├── tests/              ← Playwright unit + snapshot tests (3 viewports)
 ├── playwright.config.js← Test configuration
 ├── package.json        ← Test scripts and dev dependencies
@@ -53,8 +57,8 @@ Single-page scrolling design with **6 sections + lightbox**, anchored by `id` at
 | `display=swap` on fonts | Shows fallback font immediately, swaps when loaded |
 
 **Fonts loaded:**
-- **Cormorant Garamond** (serif) — headings, elegant feel
-- **Raleway** (sans-serif) — body text, clean and readable
+- **Cormorant Garamond** (serif) — section headings and editorial text
+- **Raleway** (sans-serif) — brand name, body text, and buttons
 
 ### Section Breakdown
 
@@ -85,7 +89,7 @@ All images use **lazy loading** and descriptive `alt` attributes:
   <input type="text" name="_honey" style="display:none">      <!-- Honeypot spam trap -->
   <input type="hidden" name="_captcha" value="false">          <!-- Skip captcha page -->
   <input type="hidden" name="_next" value="https://stthomasdeco.ca/#contact">
-  <input type="hidden" name="_subject" value="New inquiry from stthomasdeco.ca">
+  <input type="hidden" name="_subject" value="New inquiry for Decorby Raj">
   <!-- Visible fields: name, email, phone, event type (dropdown), date, message -->
 </form>
 ```
@@ -113,17 +117,19 @@ All icons are **inline SVGs** — no icon library download needed:
 
 ```css
 :root {
-  --color-primary:     #0D3B0D;   /* Dark forest green — header, footer, headings */
-  --color-accent:      #2E7D32;   /* Rich green — links, form focus states */
-  --color-highlight:   #66BB6A;   /* Medium green — hover states */
-  --color-mint:        #A5D6A7;   /* Mint — form borders */
-  --color-gold:        #C8A96E;   /* Champagne gold — CTA buttons, premium accent */
-  --color-bg:          #FAFCFA;   /* Off-white with green tint — page background */
-  --color-bg-section:  #F1F8F2;   /* Light green — alternating section backgrounds */
-  --color-bg-dark:     #0A2E0A;   /* Very dark green — footer */
-  --color-text:        #1A1A1A;   /* Near-black body text */
+  --color-primary:     #063B2B;   /* Dark forest green — header, footer, headings */
+  --color-accent:      #187451;   /* Rich green — links, form focus states */
+  --color-highlight:   #116345;   /* Deep green — readable link hover states */
+  --color-mint:        #BDDCCA;   /* Mint — form borders */
+  --color-lime:        #AFE883;   /* Leaf lime — brand accents on dark backgrounds */
+  --color-turquoise:   #24D5AF;   /* Turquoise — brand-gradient endpoint */
+  --gradient-brand: linear-gradient(110deg, var(--color-lime), var(--color-turquoise));
+  --color-bg:          #FBFCF9;   /* Off-white with green tint — page background */
+  --color-bg-section:  #F0F7F2;   /* Light green — alternating section backgrounds */
+  --color-bg-dark:     #03251A;   /* Very dark green — footer */
+  --color-text:        #18291F;   /* Near-black body text */
   --color-text-light:  #FFFFFF;   /* White text on dark backgrounds */
-  --color-text-muted:  #5A6B5A;   /* Muted green-gray for subtitles */
+  --color-text-muted:  #52685C;   /* Muted green-gray for subtitles */
   --ff-heading: 'Cormorant Garamond', Georgia, serif;
   --ff-body:    'Raleway', 'Segoe UI', sans-serif;
   --shadow-card: 0 4px 20px rgba(0,0,0,0.08);
@@ -166,7 +172,7 @@ All icons are **inline SVGs** — no icon library download needed:
 | Hero parallax | `background-attachment: fixed` (with iOS `@supports` fallback) |
 | Hero animation | `@keyframes heroFadeUp` staggers title → tagline → CTA button |
 | CTA glow pulse | `@keyframes subtlePulse` on hero button after entrance animation |
-| Title underlines | `::after` gold line under centered section titles |
+| Title underlines | `::after` brand-gradient line under centered section titles |
 | Lightbox | Native `<dialog>` element, `position: fixed; inset: 0`, `rgba(0,0,0,0.92)` backdrop |
 
 ---
@@ -354,7 +360,7 @@ git push origin main
 | Markup | HTML5 (semantic elements, `<dialog>`, lazy loading) |
 | Styling | CSS3 (custom properties, Grid, columns, Flexbox, `clamp()`, transitions, `@keyframes`) |
 | Scripting | Vanilla JS (ES5-compatible, IntersectionObserver with fallback) |
-| Fonts | Google Fonts CDN (Playfair Display + Raleway) |
+| Fonts | Google Fonts CDN (Cormorant Garamond + Raleway) |
 | Icons | Inline SVGs (zero dependencies) |
 | Forms | FormSubmit.co (free, no-backend email forwarding) |
 | Hosting | GitHub Pages (Fastly CDN, Let's Encrypt SSL) |

@@ -1,18 +1,20 @@
-# St.Thomas Deco by Raj — Website Plan
+# Decorby Raj — Website Plan
+
+This document retains the original implementation roadmap. Current source, hosting, and test details are in `README.md`. The current brand is **Decorby Raj**, with the owner-supplied “Decor by Raj” leaf logo and the tagline “Turning your vision into beautiful moments.” The existing domain and contact endpoints remain in use.
 
 ## 📌 Project Overview
 
 | Field | Detail |
 |-------|--------|
-| **Business** | St.Thomas Deco by Raj |
+| **Business** | Decorby Raj |
 | **Category** | Event Planner |
 | **Domain** | stthomasdeco.ca |
-| **Location** | 17 Tamarack Court, Saint Thomas, ON, Canada, N5P 0A |
+| **Service area** | London and St. Thomas, Ontario, Canada |
 | **Phone** | (647) 572-7822 |
 | **Email** | stthomasdecobyraj@gmail.com |
 | **Hours** | Always open |
-| **Tagline** | "Transforming spaces into unforgettable experiences" |
-| **Facebook** | [St.Thomas Deco by Raj](https://www.facebook.com/profile.php?id=100092185550079) |
+| **Tagline** | "Turning your vision into beautiful moments." |
+| **Facebook** | [Decorby Raj](https://www.facebook.com/profile.php?id=100092185550079) |
 | **Instagram** | [@turquoise_deco](https://instagram.com/turquoise_deco) |
 | **Reviews** | 100% recommend (23 Reviews) |
 | **Reference Site** | [petalsofpassion.ca](https://www.petalsofpassion.ca) |
@@ -47,11 +49,11 @@
 
 ## 🖼️ Assets Inventory (COLLECTED)
 
-### Logos (2 variants)
+### Current Brand Artwork
 | File | Usage |
 |------|-------|
-| `622862643...n.jpg` | **Primary logo** — Green leaf/sparkle on dark green background ("St.Thomas Deco") |
-| `619460738...n.jpg` | **Painted sign logo** — Rustic wooden sign ("St. Thomas Deco by Raj") — good for About section or hero |
+| `images/decorby-raj-logo.jpg` | **Owner-supplied logo** — lime/turquoise leaf and sparkle on deep green, with the stylized wordmark “Decor by Raj”; used in the header, favicon, and sharing metadata |
+| `images/decorby-raj-garden-sign.png` | **Owner-supplied garden artwork, brand-corrected** — floral garden sign reading “Decorby Raj”; used in the About section |
 
 ### Gallery Photos (10 photos — all collected)
 | File | Category | Description |
@@ -64,7 +66,7 @@
 | `529845898...n.jpg` | Wedding Decor | Outdoor wedding arch — blue/white flowers, wooden pergola, draped fabric |
 | `530400930...n.jpg` | Balloon Decor | "Oh Baby" shower — peach/green/coral balloons, teddy bear, tropical theme |
 | `555416349...n.jpg` | Event Planning | Rapunzel/Giovana birthday — purple balloons, flowers, themed cutout |
-| `560369039...n.jpg` | Balloon Decor | Safari birthday — green/gold balloons, stuffed animals, hanging vines |
+| `560369039...n.jpg` | Balloon Decor | Safari birthday — deep green/lime/turquoise balloons, stuffed animals, hanging vines |
 | `653980397...n.jpg` | Flowers / Balloon | Gender reveal "Oh Baby" — pink/blue/white balloons, flower arch, elegant |
 
 ### Photo → Service Mapping
@@ -89,10 +91,10 @@ index.html (single page)
 │   └── Nav: Home | About | Services | Gallery | Contact
 ├── Hero Section (full-width image + tagline overlay)
 │   ├── Background: wedding expo display photo
-│   ├── "St. Thomas Deco by Raj"
-│   └── "Transforming spaces into unforgettable experiences"
+│   ├── "Decorby Raj"
+│   └── "Turning your vision into beautiful moments."
 ├── About Section
-│   ├── Painted sign logo image
+│   ├── Current Decorby Raj logo image
 │   └── Brief intro + 100% recommend badge
 ├── Services Section (4 cards with hover effect)
 │   ├── Event Planning — safari baby shower photo
@@ -106,7 +108,7 @@ index.html (single page)
 │   ├── Social links (Facebook, Instagram)
 │   └── Embedded Google Form for inquiries
 ├── Footer
-│   ├── © 2024 St.Thomas Deco by Raj
+│   ├── © 2026 Decorby Raj
 │   ├── Social icons
 │   └── "Made with ♥ in St. Thomas, ON"
 ```
@@ -119,10 +121,10 @@ stthomasdeco/
 │   └── style.css           # All styles
 ├── js/
 │   └── main.js             # Smooth scroll, mobile menu, lightbox
-├── pics/                   # ✅ ALREADY EXISTS — 12 photos + 2 logos
-│   ├── 622862643...n.jpg   # Primary logo (green leaf)
-│   ├── 619460738...n.jpg   # Painted sign logo
-│   └── (10 gallery photos)
+├── images/                 # 2 brand assets + 21 portfolio photos
+│   ├── decorby-raj-logo.jpg # Owner-supplied green leaf logo
+│   ├── decorby-raj-garden-sign.png # About-section garden artwork
+│   └── (portfolio photos)
 ├── CNAME                   # GitHub Pages custom domain file
 ├── README.md
 └── PLAN.md                 # This file
@@ -134,29 +136,30 @@ stthomasdeco/
 
 ### Color Palette (complimenting the green logo — professional look)
 ```
---color-primary:    #0D3B0D   /* Deep forest green — logo background, hero overlay, footer */
---color-accent:     #2E7D32   /* Rich green — buttons, links, active states */
---color-highlight:  #66BB6A   /* Medium green — hover states, subtle accents */
---color-mint:       #A5D6A7   /* Soft mint — borders, dividers, light accents */
---color-gold:       #C8A96E   /* Muted champagne gold — CTA buttons, premium feel */
---color-bg:         #FAFCFA   /* Very subtle green-white tint — page background */
---color-bg-section: #F1F8F2   /* Light green tint — alternating section backgrounds */
---color-bg-dark:    #0A2E0A   /* Darker green — footer background */
---color-text:       #1A1A1A   /* Near black — body text */
+--color-primary:    #063B2B   /* Deep forest green — logo background, hero overlay, footer */
+--color-accent:     #187451   /* Rich green — buttons, links, active states */
+--color-highlight:  #116345   /* Deep green — readable link hover states */
+--color-mint:       #BDDCCA   /* Soft mint — borders, dividers, light accents */
+--color-lime:       #AFE883   /* Leaf lime — brand accents on dark backgrounds */
+--color-turquoise:  #24D5AF   /* Turquoise — brand-gradient endpoint */
+--color-bg:         #FBFCF9   /* Very subtle green-white tint — page background */
+--color-bg-section: #F0F7F2   /* Light green tint — alternating section backgrounds */
+--color-bg-dark:    #03251A   /* Darker green — footer background */
+--color-text:       #18291F   /* Near black — body text */
 --color-text-light: #FFFFFF   /* White — text on dark backgrounds */
---color-text-muted: #5A6B5A   /* Muted green-gray — secondary text, captions */
+--color-text-muted: #52685C   /* Muted green-gray — secondary text, captions */
 ```
 
 **Why this palette works:**
 - Directly extends the logo's green-on-dark-green identity
-- Gold accent adds warmth + premium/professional feel (weddings, events)
+- Lime-to-turquoise accents echo the supplied leaf logo and wordmark
 - Green-tinted whites keep cohesion without feeling cold
 - High contrast ratios for accessibility (WCAG AA compliant)
 
 ### Typography
-- **Headings:** `Playfair Display` (elegant serif) — matches the script feeling of the logos
-- **Body:** `Raleway` (clean sans-serif) — readable, modern
-- **Logo text:** Uses the actual logo images (no CSS text needed)
+- **Section headings:** `Cormorant Garamond` (elegant serif)
+- **Body and brand name:** `Raleway` (clean sans-serif)
+- **Logo:** Uses the owner-supplied artwork, with a matching lime-to-turquoise gradient for live brand text
 
 ### Style Rules
 - Generous whitespace between sections
@@ -171,9 +174,9 @@ stthomasdeco/
 ## 📋 Implementation Phases
 
 ### Phase 1: Content & Assets ✅ COMPLETE
-- [x] Business logo — 2 variants collected (green leaf + painted sign)
+- [x] Business logo — current owner-supplied Decorby Raj leaf artwork
 - [x] 10 portfolio photos collected — covering all 4 services
-- [x] Business tagline confirmed: "Transforming spaces into unforgettable experiences"
+- [x] Business tagline confirmed: "Turning your vision into beautiful moments."
 - [x] Contact details confirmed (phone, email, address)
 - [x] Social media links confirmed (Facebook + Instagram)
 - [ ] Create Google Form for inquiries (fields: Name, Email, Phone, Event Type, Event Date, Message)
@@ -183,7 +186,7 @@ stthomasdeco/
 
 - [ ] Create `index.html` with all sections
 - [ ] Create `css/style.css` with full responsive design
-  - Green/gold color palette matching logo
+  - Deep green/lime/turquoise color palette matching logo
   - Mobile-first breakpoints (375px → 768px → 1024px → 1440px)
   - CSS-only fade-in animations via Intersection Observer
 - [ ] Create `js/main.js` with:
@@ -271,9 +274,9 @@ You do NOT need a Wix website plan — just the domain.
 | # | Item | Status |
 |---|------|--------|
 | 1 | **GitHub username** | ✅ `guptamr` |
-| 2 | **Color preference** | ✅ Green/gold — professional, compliments logo |
+| 2 | **Color preference** | ✅ Deep green/lime/turquoise — professional, compliments logo |
 | 3 | **Domain registrar** | ✅ Wix — DNS setup instructions included above |
-| 4 | **Logo** | ✅ 2 variants in `pics/` folder |
+| 4 | **Brand artwork** | ✅ `images/decorby-raj-logo.jpg`, `images/decorby-raj-garden-sign.png` |
 | 5 | **Portfolio photos** | ✅ 10 photos covering all 4 services |
 | 6 | **Business details** | ✅ Phone, email, address, tagline, socials |
 

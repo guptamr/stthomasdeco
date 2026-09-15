@@ -10,8 +10,13 @@ const { test, expect } = require('@playwright/test');
 async function waitForReady(page) {
   await page.waitForLoadState('networkidle');
   await page.waitForTimeout(1200);
-  // Stop carousel intervals and reset to first slide for deterministic screenshots
+  // Keep the pointer over the fixed header so gallery hover overlays stay deterministic.
+  await page.mouse.move(1, 1);
+  // Load all local artwork before capturing and reset carousels for deterministic screenshots.
   await page.evaluate(() => {
+    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+      img.loading = 'eager';
+    });
     const highestId = Number(globalThis.setInterval(() => {}, 0));
     for (let i = 0; i <= highestId; i++) globalThis.clearInterval(i);
     document.querySelectorAll('.card__carousel').forEach(carousel => {
@@ -23,6 +28,7 @@ async function waitForReady(page) {
       });
     });
   });
+  await page.waitForFunction(() => Array.from(document.images).every(img => img.complete));
 }
 
 /* ============================================================

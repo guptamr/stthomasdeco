@@ -83,7 +83,7 @@ test.describe('C — Smooth Scroll / Navigation', () => {
   test('9: Get a Free Quote scrolls to contact', async ({ page }) => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
-    await page.locator('a.btn--gold[href="#contact"]').click();
+    await page.locator('a.btn--brand[href="#contact"]').click();
     await page.waitForTimeout(4000);
     const scrollY = await page.evaluate(() => window.scrollY);
     expect(scrollY).toBeGreaterThan(1000);
@@ -425,7 +425,7 @@ test.describe('K — Meta / SEO', () => {
     await page.goto('/');
     const title = await page.title();
     expect(title.length).toBeGreaterThan(0);
-    expect(title).toContain('St.Thomas Deco');
+    expect(title).toContain('Decorby Raj');
   });
 
   test('38: Meta description present', async ({ page }) => {

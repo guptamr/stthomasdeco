@@ -11,13 +11,15 @@ All values live in `:root` custom properties. **Never hardcode** colors, fonts, 
 
 ```css
 /* Colors */
---color-primary:    #0D3B0D;   /* Header, footer, headings */
---color-accent:     #2E7D32;   /* Links, focus states */
---color-highlight:  #66BB6A;   /* Hover states */
---color-gold:       #C8A96E;   /* CTA buttons, premium accent */
---color-bg:         #FAFCFA;   /* Page background */
---color-bg-section: #F1F8F2;   /* Alternating section backgrounds */
---color-bg-dark:    #0A2E0A;   /* Footer */
+--color-primary:    #063B2B;   /* Header, footer, headings */
+--color-accent:     #187451;   /* Links, focus states */
+--color-highlight:  #116345;   /* Readable link hover states */
+--color-lime:       #AFE883;   /* Brand accents on dark backgrounds */
+--color-turquoise:  #24D5AF;   /* Brand-gradient endpoint */
+--gradient-brand: linear-gradient(110deg, var(--color-lime), var(--color-turquoise));
+--color-bg:         #FBFCF9;   /* Page background */
+--color-bg-section: #F0F7F2;   /* Alternating section backgrounds */
+--color-bg-dark:    #03251A;   /* Footer */
 
 /* Typography */
 --ff-heading: 'Cormorant Garamond', Georgia, serif;
@@ -59,7 +61,7 @@ font-size: 2rem;
 | Card elevation | Always use `var(--shadow-card)` |
 | Hover lifts | `transform: translateY(-6px)` |
 | Scroll reveal | `.reveal { opacity: 0; transform: translateY(30px); }` → `.visible` |
-| Section titles | `::after` pseudo-element for gold underline |
+| Section titles | `::after` pseudo-element for brand-gradient underline |
 
 ## Rules
 

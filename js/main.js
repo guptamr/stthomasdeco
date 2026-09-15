@@ -1,5 +1,5 @@
 /* ========================================
-   St.Thomas Deco by Raj — Main JS
+   Decorby Raj — Main JS
    ======================================== */
 
 (function () {

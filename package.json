@@ -1,8 +1,8 @@
 {
-  "name": "stthomasdeco",
+  "name": "decorby-raj",
   "version": "1.0.0",
   "private": true,
-  "description": "Event decor & planning business website for **St.Thomas Deco by Raj**, based in St. Thomas, Ontario, Canada. Single-page static site hosted on GitHub Pages with a custom domain.",
+  "description": "Decorby Raj — custom balloon and event decor in London and St. Thomas, Ontario. Single-page static site hosted on GitHub Pages with a custom domain.",
   "scripts": {
     "test": "npx playwright test",
     "test:unit": "npx playwright test tests/unit.spec.js",
