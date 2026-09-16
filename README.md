@@ -1,10 +1,10 @@
 # Decorby Raj — stthomasdeco.ca
 
-Custom balloon and event decor website for **Decorby Raj**, serving London and St. Thomas, Ontario, Canada. Single-page static site hosted on GitHub Pages with a custom domain.
+Event decor and planning website for **Decorby Raj**, serving London and St. Thomas, Ontario, Canada. Single-page static site hosted on GitHub Pages with a custom domain.
 
 **Live site:** [https://stthomasdeco.ca](https://stthomasdeco.ca)
 
-**Brand:** Use **Decorby Raj** in website copy, titles, and accessibility labels. The owner-supplied artwork in `images/decorby-raj-logo.jpg` uses the stylized wordmark “Decor by Raj”; use that original image without altering it. The tagline is “Turning your vision into beautiful moments.” The palette pairs deep green with lime and turquoise.
+**Brand:** Use **Decorby Raj** in website copy, titles, and accessibility labels. The owner-supplied artwork in `images/decorby-raj-logo.jpg` uses the stylized wordmark “Decor by Raj”; use that original image without altering it. The tagline is “Transforming spaces into unforgettable experiences.” The palette pairs deep green with lime and turquoise.
 
 The existing domain, repository URL, phone, email addresses, and social account URLs remain the contact and hosting endpoints. A business-name change does not establish new addresses. Update those only when the owner supplies confirmed replacements. The Facebook profile uses its existing numeric ID, so its renamed page keeps the same link.
 

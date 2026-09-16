@@ -2,11 +2,11 @@
 
 ## Project Overview
 
-Static single-page website for **Decorby Raj**, a custom balloon and event decor business serving London and St. Thomas, Ontario. No build tools or frameworks — pure HTML/CSS/JS served directly by GitHub Pages; npm is used only for tests.
+Static single-page website for **Decorby Raj**, an event decor and planning business serving London and St. Thomas, Ontario. No build tools or frameworks — pure HTML/CSS/JS served directly by GitHub Pages; npm is used only for tests.
 
 **Live domain:** stthomasdeco.ca (GitHub Pages + Wix DNS)
 
-**Brand identity:** Use `Decorby Raj` in copy and metadata. Use the owner-supplied `images/decorby-raj-logo.jpg` artwork, whose stylized wordmark reads “Decor by Raj”, for the header, favicon, and sharing metadata. Use `images/decorby-raj-garden-sign.png` as the About-section brand artwork. Tagline: “Turning your vision into beautiful moments.” Existing domain, email addresses, repository name, and social account URLs are operational endpoints; do not invent renamed replacements.
+**Brand identity:** Use `Decorby Raj` in copy and metadata. Use the owner-supplied `images/decorby-raj-logo.jpg` artwork, whose stylized wordmark reads “Decor by Raj”, for the header, favicon, and sharing metadata. Use `images/decorby-raj-garden-sign.png` as the About-section brand artwork. Tagline: “Transforming spaces into unforgettable experiences.” Existing domain, email addresses, repository name, and social account URLs are operational endpoints; do not invent renamed replacements.
 
 ## Architecture
 

@@ -1,6 +1,6 @@
 # Decorby Raj — Website Plan
 
-This document retains the original implementation roadmap. Current source, hosting, and test details are in `README.md`. The current brand is **Decorby Raj**, with the owner-supplied “Decor by Raj” leaf logo and the tagline “Turning your vision into beautiful moments.” The existing domain and contact endpoints remain in use.
+This document retains the original implementation roadmap. Current source, hosting, and test details are in `README.md`. The current brand is **Decorby Raj**, with the owner-supplied “Decor by Raj” leaf logo and the tagline “Transforming spaces into unforgettable experiences.” The existing domain and contact endpoints remain in use.
 
 ## 📌 Project Overview
 
@@ -13,7 +13,7 @@ This document retains the original implementation roadmap. Current source, hosti
 | **Phone** | (647) 572-7822 |
 | **Email** | stthomasdecobyraj@gmail.com |
 | **Hours** | Always open |
-| **Tagline** | "Turning your vision into beautiful moments." |
+| **Tagline** | "Transforming spaces into unforgettable experiences." |
 | **Facebook** | [Decorby Raj](https://www.facebook.com/profile.php?id=100092185550079) |
 | **Instagram** | [@turquoise_deco](https://instagram.com/turquoise_deco) |
 | **Reviews** | 100% recommend (23 Reviews) |
@@ -92,7 +92,7 @@ index.html (single page)
 ├── Hero Section (full-width image + tagline overlay)
 │   ├── Background: wedding expo display photo
 │   ├── "Decorby Raj"
-│   └── "Turning your vision into beautiful moments."
+│   └── "Transforming spaces into unforgettable experiences."
 ├── About Section
 │   ├── Current Decorby Raj logo image
 │   └── Brief intro + 100% recommend badge
@@ -176,7 +176,7 @@ stthomasdeco/
 ### Phase 1: Content & Assets ✅ COMPLETE
 - [x] Business logo — current owner-supplied Decorby Raj leaf artwork
 - [x] 10 portfolio photos collected — covering all 4 services
-- [x] Business tagline confirmed: "Turning your vision into beautiful moments."
+- [x] Business tagline confirmed: "Transforming spaces into unforgettable experiences."
 - [x] Contact details confirmed (phone, email, address)
 - [x] Social media links confirmed (Facebook + Instagram)
 - [ ] Create Google Form for inquiries (fields: Name, Email, Phone, Event Type, Event Date, Message)
