@@ -9,7 +9,7 @@ This document retains the original implementation roadmap. Current source, hosti
 | **Business** | Decorby Raj |
 | **Category** | Event Planner |
 | **Domain** | stthomasdeco.ca |
-| **Service area** | London and St. Thomas, Ontario, Canada |
+| **Service area** | London, St. Thomas, the GTA, and surrounding Southern Ontario communities |
 | **Phone** | (647) 572-7822 |
 | **Email** | stthomasdecobyraj@gmail.com |
 | **Hours** | Always open |

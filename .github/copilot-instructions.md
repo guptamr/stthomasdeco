@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Static single-page website for **Decorby Raj**, an event decor and planning business serving London and St. Thomas, Ontario. No build tools or frameworks — pure HTML/CSS/JS served directly by GitHub Pages; npm is used only for tests.
+Static single-page website for **Decorby Raj**, an event decor and planning business serving London, St. Thomas, the GTA, and surrounding Southern Ontario communities. No build tools or frameworks — pure HTML/CSS/JS served directly by GitHub Pages; npm is used only for tests.
 
 **Live domain:** stthomasdeco.ca (GitHub Pages + Wix DNS)
 

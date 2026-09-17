@@ -1,6 +1,6 @@
 # Decorby Raj — stthomasdeco.ca
 
-Event decor and planning website for **Decorby Raj**, serving London and St. Thomas, Ontario, Canada. Single-page static site hosted on GitHub Pages with a custom domain.
+Event decor and planning website for **Decorby Raj**, serving London, St. Thomas, the GTA, and surrounding Southern Ontario communities. Single-page static site hosted on GitHub Pages with a custom domain.
 
 **Live site:** [https://stthomasdeco.ca](https://stthomasdeco.ca)
 

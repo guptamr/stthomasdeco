@@ -2,7 +2,7 @@
   "name": "decorby-raj",
   "version": "1.0.0",
   "private": true,
-  "description": "Decorby Raj — event decor and planning in London and St. Thomas, Ontario. Single-page static site hosted on GitHub Pages with a custom domain.",
+  "description": "Decorby Raj — event decor and planning across London, St. Thomas, the GTA, and surrounding Southern Ontario communities.",
   "scripts": {
     "test": "npx playwright test",
     "test:unit": "npx playwright test tests/unit.spec.js",
